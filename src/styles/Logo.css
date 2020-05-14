@@ -1,0 +1,15 @@
+.Logo{
+    max-width: 30vmin;
+    margin: auto;
+    display: block;
+    animation: spin 10s infinite linear;
+    transition: ease-in-out;
+
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+

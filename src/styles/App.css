@@ -1,0 +1,98 @@
+.AppComponent{
+    color: white;
+    font-family:  monospace;
+}
+
+.Stats{
+    text-align: center;
+    font-size: calc(20px + 2vmin); 
+    margin: auto;
+}
+
+.TypingTest{
+    
+    width: 95vmin;
+    margin: 5vh auto 5vh auto;
+    font-size: calc(16px + 2vmin); 
+    white-space: pre;
+    text-align: center;
+    padding: 1%;
+    overflow: hidden;
+}
+
+.Outgoing{
+   color: gray; 
+}
+
+.MostMisspelledWords{
+  font-size: calc(10px + 2vmin); 
+}
+
+.table{
+  margin: auto;
+  width: 50vmin;
+}
+
+
+.refreshButton{
+  font-size: calc(2vmin); 
+  margin: 1vmin;
+  display: block;
+  margin: auto;
+  background: #61dafb;
+  text-align: center;
+  border-radius: 5px;
+  color: #282c34;
+  text-decoration: none;
+  font-weight: bold;
+  /* cards */
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.refreshButton:hover{
+  box-shadow: 0 20px 40px 0 rgba(0,0,0,0.3);
+}
+
+.refreshButton:active{
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.3);
+  color: #61dafb;
+  border: 3px solid #61dafb;
+  background-color: white;
+}
+
+.refreshButton{
+
+  border: none;
+  background: #109acc;
+  color: white;
+  padding: 3px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: monospace;
+  font-size: 3vmin;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  /* cards */
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.3);
+  transition: 0.3s;
+  position:absolute;
+  bottom: 5vmin;
+  right: 5vmin;
+}
+.refreshButton:hover{
+  box-shadow: 0 20px 40px 0 rgba(0,0,0,0.3);
+}
+.refreshButton:active{
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.3);
+  background:white;
+  color: #109acc;
+}
+
+.back{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
