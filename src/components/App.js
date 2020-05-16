@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react"
 import "../styles/App.css"
 
 import Logo from "./Logo"
+import Stats from "./Stats"
+import TypingTest from "./TypingTest"
+import MostFreqTypos from "./MostFreqTypos"
 
 import { getWords } from "../utility/getWords"
 import { useKeyPress } from "../utility/useKeyPress"
@@ -88,7 +91,6 @@ const App = () => {
             curIncoming = incoming.substr(1)
 
             // get more words if needed for incoming
-            // 400 is roughly the chars for one paragraph
             if (incoming.length < 30) {
                 curIncoming += ' ' + getWords()
             }
@@ -155,74 +157,31 @@ const App = () => {
 
     return (
         <div className="AppComponent">
+            
             <Logo isTyping={isTyping} />
-            <h1 className="Stats">
-                <span>
-                    WPM: {wpm}
-                </span>
 
-                <span className="StatsDiv"> | </span>
-
-                <span style={{ color: `${accuracyColor}` }}>
-                    ACC: {accuracy}
-                </span>
-            </h1>
+            <Stats
+                wpm={wpm}
+                accuracy={accuracy}
+                accuracyColor={accuracyColor}
+            />
 
             <br />
 
-            <p className="TypingTest">
-                <span className="Outgoing">
-                    {leftPadding + outgoing.slice(-20)}
-                </span>
-
-                <span
-                    className="Current"
-                    style={{ backgroundColor: `${cursorColor}` }}
-                >
-                    {curChar}
-                </span>
-
-                <span className="Incoming">
-                    {incoming.substr(0, 20)}
-                </span>
-            </p>
+            <TypingTest
+                leftPadding={leftPadding}
+                outgoing={outgoing}
+                incoming={incoming}
+                curChar={curChar}
+                cursorColor={cursorColor}
+            />
 
             <br />
 
-            <div className="MostFreqTypos">
-                <p className="tableTitle"> Most Frequent Typos</p>
-                <table className="table">
-                    <thead>
-                        <tr className="tableHeaders">
-                            <th>Word</th>
-                            <th>Count</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{typoArray[0] ? typoArray[0].key : "-"}</td>
-                            <td>{typoArray[0] ? typoArray[0].value : "-"}</td>
-                        </tr>
-                        <tr>
-                            <td>{typoArray[1] ? typoArray[1].key : "-"}</td>
-                            <td>{typoArray[1] ? typoArray[1].value : "-"}</td>
-                        </tr>
-                        <tr>
-                            <td>{typoArray[2] ? typoArray[2].key : "-"}</td>
-                            <td>{typoArray[2] ? typoArray[2].value : "-"}</td>
-                        </tr>
-                        <tr>
-                            <td>{typoArray[3] ? typoArray[3].key : "-"}</td>
-                            <td>{typoArray[3] ? typoArray[3].value : "-"}</td>
-                        </tr>
-                        <tr>
-                            <td>{typoArray[4] ? typoArray[4].key : "-"}</td>
-                            <td>{typoArray[4] ? typoArray[4].value : "-"}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <MostFreqTypos typoArray={typoArray} />
+
             <br />
+
             <div className="refreshButton" onClick={refresh}>Restart</div>
         </div>
     )

@@ -1,0 +1,14 @@
+.TypingTest{
+    
+    width: 95vmin;
+    margin: 5vh auto 5vh auto;
+    font-size: calc(16px + 2vmin); 
+    white-space: pre;
+    text-align: center;
+    padding: 1%;
+    overflow: hidden;
+}
+
+.Outgoing{
+   color: gray; 
+}

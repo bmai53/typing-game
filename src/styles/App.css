@@ -3,48 +3,6 @@
     font-family:  monospace;
 }
 
-.Stats{
-    text-align: center;
-    font-size: calc(20px + 2vmin); 
-    margin: auto;
-}
-
-.TypingTest{
-    
-    width: 95vmin;
-    margin: 5vh auto 5vh auto;
-    font-size: calc(16px + 2vmin); 
-    white-space: pre;
-    text-align: center;
-    padding: 1%;
-    overflow: hidden;
-}
-
-.Outgoing{
-   color: gray; 
-}
-
-.MostFreqTypos{
-  font-size: calc(10px + 2vmin); 
-  margin: auto;
-}
-
-.table{
-  margin-left:auto; 
-  margin-right:auto;
-  border-collapse: collapse;
-  table-layout: auto;
-}
-
-.table td{
-  width: 15vmin;
-  color: silver;
-}
-
-.tableHeaders{
-  border-bottom: 1px solid white;
-}
-
 .refreshButton{
   font-size: calc(2vmin); 
   margin: 1vmin;
@@ -100,10 +58,4 @@
   box-shadow: 0 1px 4px 0 rgba(0,0,0,0.3);
   background:white;
   color: #109acc;
-}
-
-.back{
-  position: absolute;
-  bottom: 0;
-  left: 0;
 }
