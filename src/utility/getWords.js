@@ -1,7 +1,5 @@
 const txtgen = require('txtgen');
 
-export const getWords = (count = 10) => {
-
-    const ret = txtgen.sentence()
-    return ret
+export const getWords = () => {
+    return txtgen.sentence()
 }

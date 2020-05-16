@@ -8,8 +8,8 @@ import { useKeyPress } from "../utility/useKeyPress"
 import { hsl } from '../utility/hsl'
 import { getTime } from '../utility/time'
 import { refresh } from '../utility/refresh'
-import { removePunctuation } from '../utility/removePunctuation'
 import { getFirstWord } from "../utility/getFirstWord"
+import { nonLettersDir } from "../utility/nonLetters"
 
 const words = getWords()
 
@@ -49,7 +49,8 @@ const App = () => {
         typoArray.push({ key, value })
     }
     typoArray.sort((a, b) => b.value - a.value)
-    
+
+    // logic of game 
     useKeyPress(key => {
 
         // initialize!
@@ -99,24 +100,24 @@ const App = () => {
         // mistyped character
         else {
             setCursorColor("red")
-            
-            // account if SPACE is mistyped
-            if (curChar === ' '){
+
+            const kvPair = nonLettersDir.find(kv => kv.key === curChar)
+            if (kvPair) {
                 setTypoMap(
-                    typoMap.has('SPACE') ?
-                    typoMap.set('SPACE', typoMap.get('SPACE') + 1) :
-                    typoMap.set('SPACE', 1)
-                )
-            } 
-            
-            else{
-                setTypoMap(
-                    typoMap.has(curWord) ?
-                    typoMap.set(curWord, typoMap.get(curWord) + 1) :
-                    typoMap.set(curWord, 1)
+                    typoMap.has(kvPair.value) ?
+                        typoMap.set(kvPair.value, typoMap.get(kvPair.value) + 1) :
+                        typoMap.set(kvPair.value, 1)
                 )
             }
-            
+
+            else {
+                setTypoMap(
+                    typoMap.has(curWord) ?
+                        typoMap.set(curWord, typoMap.get(curWord) + 1) :
+                        typoMap.set(curWord, 1)
+                )
+            }
+
         }
 
         // updating accuracy
@@ -188,36 +189,40 @@ const App = () => {
 
             <br />
 
-            <div className="MostMisspelledWords">
-                <p className="tableTitle"> Most Frequently Misspelled Words</p>
+            <div className="MostFreqTypos">
+                <p className="tableTitle"> Most Frequent Typos</p>
                 <table className="table">
-                    <tr className="tableHeaders">
-                        <th>Word</th>
-                        <th>Count</th>
-                    </tr>
-                    <tr>
-                        <td>{typoArray[0] ? typoArray[0].key : "-"}</td>
-                        <td>{typoArray[0] ? typoArray[0].value : "-"}</td>
-                    </tr>
-                    <tr>
-                        <td>{typoArray[1] ? typoArray[1].key : "-"}</td>
-                        <td>{typoArray[1] ? typoArray[1].value : "-"}</td>
-                    </tr>
-                    <tr>
-                        <td>{typoArray[2] ? typoArray[2].key : "-"}</td>
-                        <td>{typoArray[2] ? typoArray[2].value : "-"}</td>
-                    </tr>
-                    <tr>
-                        <td>{typoArray[3] ? typoArray[3].key : "-"}</td>
-                        <td>{typoArray[3] ? typoArray[3].value : "-"}</td>
-                    </tr>
-                    <tr>
-                        <td>{typoArray[4] ? typoArray[4].key : "-"}</td>
-                        <td>{typoArray[4] ? typoArray[4].value : "-"}</td>
-                    </tr>
+                    <thead>
+                        <tr className="tableHeaders">
+                            <th>Word</th>
+                            <th>Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{typoArray[0] ? typoArray[0].key : "-"}</td>
+                            <td>{typoArray[0] ? typoArray[0].value : "-"}</td>
+                        </tr>
+                        <tr>
+                            <td>{typoArray[1] ? typoArray[1].key : "-"}</td>
+                            <td>{typoArray[1] ? typoArray[1].value : "-"}</td>
+                        </tr>
+                        <tr>
+                            <td>{typoArray[2] ? typoArray[2].key : "-"}</td>
+                            <td>{typoArray[2] ? typoArray[2].value : "-"}</td>
+                        </tr>
+                        <tr>
+                            <td>{typoArray[3] ? typoArray[3].key : "-"}</td>
+                            <td>{typoArray[3] ? typoArray[3].value : "-"}</td>
+                        </tr>
+                        <tr>
+                            <td>{typoArray[4] ? typoArray[4].key : "-"}</td>
+                            <td>{typoArray[4] ? typoArray[4].value : "-"}</td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
-            <br/>
+            <br />
             <div className="refreshButton" onClick={refresh}>Restart</div>
         </div>
     )

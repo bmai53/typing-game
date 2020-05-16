@@ -1,1 +1,0 @@
-export const removePunctuation = string => string.match(/[^\W]+/g).join('')

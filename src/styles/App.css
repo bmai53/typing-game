@@ -24,15 +24,16 @@
    color: gray; 
 }
 
-.MostMisspelledWords{
+.MostFreqTypos{
   font-size: calc(10px + 2vmin); 
+  margin: auto;
 }
 
 .table{
-  margin: auto;
-  width: 50vmin;
+  margin-left:auto; 
+  margin-right:auto;
+  border-spacing: 10vmin 0px;
 }
-
 
 .refreshButton{
   font-size: calc(2vmin); 
