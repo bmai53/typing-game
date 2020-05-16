@@ -32,7 +32,17 @@
 .table{
   margin-left:auto; 
   margin-right:auto;
-  border-spacing: 10vmin 0px;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+.table td{
+  width: 15vmin;
+  color: silver;
+}
+
+.tableHeaders{
+  border-bottom: 1px solid white;
 }
 
 .refreshButton{
