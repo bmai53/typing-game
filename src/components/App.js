@@ -16,6 +16,7 @@ import { nonLettersDir } from "../utility/nonLetters"
 
 const words = getWords()
 
+
 const App = () => {
 
     // typing test
@@ -25,12 +26,14 @@ const App = () => {
     const [incoming, setIncoming] = useState(words.substr(1))
 
     // colors/decoration
-    const [accuracyColor, setAccuracyColor] = useState(hsl(100))
+    const [accuracyColor, setAccuracyColor] = useState('#FFFFFF')
+    const [wpmColor, setWpmColor] = useState('#FFFFFF')
     const defaultCursorColor = "#09d3ac"
     const [cursorColor, setCursorColor] = useState(defaultCursorColor)
 
     // wpm
     const [startTime, setStartTime] = useState()
+    const [curTime, setCurTime] = useState()
     const [wordCount, setWordCount] = useState(0)
     const [wpm, setWpm] = useState(0)
 
@@ -53,12 +56,22 @@ const App = () => {
     }
     typoArray.sort((a, b) => b.value - a.value)
 
+    const calcWpm = () => {
+        const curTimeInMinutes = (getTime() - startTime) / 60000
+        const curWpm = wordCount === 0 ? 0 : (wordCount / curTimeInMinutes).toFixed(2)
+        const wpmColorValue = parseFloat(curWpm)
+
+        setWpmColor(hsl(wpmColorValue))
+        setWpm(curWpm)
+    }
+
     // logic of game 
     useKeyPress(key => {
 
         // initialize!
         if (!startTime) {
             setStartTime(getTime())
+            setCurTime(getTime())
         }
 
         // are we typing? Yes!
@@ -71,14 +84,15 @@ const App = () => {
 
         if (key === curChar) {
 
-            // updating WPM
+            // updating word count
             if (incoming.charAt(0) === ' ') {
                 setWordCount(wordCount + 1)
                 setCurWord(getFirstWord(incoming.substr(1)))
             }
-            const curTimeInMinutes = (getTime() - startTime) / 60000
-            const curWpm = wordCount === 0 ? 0 : (wordCount / curTimeInMinutes).toFixed(2)
-            setWpm(curWpm)
+
+            // calc wpm after every keystroke
+            calcWpm()
+ 
 
             //gradually remove padding as needed
             if (leftPadding.length > 0) {
@@ -136,10 +150,16 @@ const App = () => {
 
     })
 
-
-    // check if still typing
+    // track current time/user
     useEffect(() => {
         const checkIfTyping = setInterval(() => {
+
+            // calc wpm even when user is not typing
+            if (startTime) {
+                calcWpm()
+            }
+
+            // check if still typing
             const timeDif = getTime() - timeOfLastKey
             if (timeOfLastKey && (timeDif < 1000)) {
                 setIsTyping(true)
@@ -147,23 +167,23 @@ const App = () => {
             else {
                 setIsTyping(false)
             }
-        }, 100)
+        }, 500)
 
         return () => {
             clearInterval(checkIfTyping);
         };
     });
 
-
     return (
         <div className="AppComponent">
-            
+
             <Logo isTyping={isTyping} />
 
             <Stats
                 wpm={wpm}
                 accuracy={accuracy}
                 accuracyColor={accuracyColor}
+                wpmColor={wpmColor}
             />
 
             <br />

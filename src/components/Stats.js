@@ -5,7 +5,7 @@ const Stats = props => (
 
     <div>
         <h1 className="Stats">
-            <span>
+            <span style={{ color: `${props.wpmColor}` }}>
                 WPM: {props.wpm}
             </span>
 
