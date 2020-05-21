@@ -115,7 +115,7 @@ eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../.
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \".MostFreqTypos{\\n  font-size: calc(10px + 2vmin); \\n  margin: auto;\\n}\\n\\n.table{\\n  margin-left:auto; \\n  margin-right:auto;\\n  border-collapse: collapse;\\n  table-layout: auto;\\n}\\n\\n.table td{\\n  width: 15vmin;\\n  color: silver;\\n}\\n\\n.tableHeaders{\\n  border-bottom: 1px solid white;\\n}\\n\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/styles/MostFreqTypo.css?./node_modules/css-loader/dist/cjs.js");
+eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \".MostFreqTypos{\\n  font-size: calc(10px + 2vmin); \\n  margin: auto;\\n}\\n\\n.table{\\n  margin-left:auto; \\n  margin-right:auto;\\n  border-collapse: collapse;\\n  table-layout: auto;\\n}\\n\\n.table td{\\n  width: 25vmin;\\n  color: silver;\\n}\\n\\n.tableHeaders{\\n  border-bottom: 1px solid white;\\n}\\n\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/styles/MostFreqTypo.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -137,7 +137,7 @@ eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../.
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \".TypingTest{\\n    \\n    width: 95vmin;\\n    margin: 5vh auto 5vh auto;\\n    font-size: calc(16px + 2vmin); \\n    white-space: pre;\\n    text-align: center;\\n    padding: 1%;\\n    overflow: hidden;\\n}\\n\\n.Outgoing{\\n   color: gray; \\n}\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/styles/TypingTest.css?./node_modules/css-loader/dist/cjs.js");
+eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \".TypingTest{\\n    \\n    width: 95vmin;\\n    margin: 5vh auto 5vh auto;\\n    font-size: calc(16px + 2vmin); \\n    white-space: pre;\\n    text-align: center;\\n    padding: 1%;\\n    overflow: hidden;\\n}\\n\\n.Outgoing{\\n   color: gray; \\n}\\n\\n@media screen and (max-device-width:480px){\\n    .Outgoing{\\n        display: none;\\n    }\\n}\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/styles/TypingTest.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -148,7 +148,7 @@ eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../.
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \"body{\\n    background-color: #282c34;\\n    min-width: 100%;\\n    min-height: 100%;\\n    overflow: hidden;\\n    text-align: center;\\n}\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/styles/index.css?./node_modules/css-loader/dist/cjs.js");
+eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \"body{\\n    background-color: #282c34;\\n    min-width: 100vw;\\n    min-height: 100vh;\\n    overflow: hidden;\\n    text-align: center;\\n}\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/styles/index.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -477,7 +477,7 @@ eval("var api = __webpack_require__(/*! ../../node_modules/style-loader/dist/run
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getFirstWord\", function() { return getFirstWord; });\nconst getFirstWord = words => {\n  let ret = words.indexOf(' ') === -1 ? words.substr(0) : words.substr(0, words.indexOf(' ')); // remove punctuation\n\n  ret = ret.match(/[^\\W]+/g).join('');\n  return ret;\n};\n\n//# sourceURL=webpack:///./src/utility/getFirstWord.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getFirstWord\", function() { return getFirstWord; });\nconst getFirstWord = words => {\n  let ret = words.indexOf(' ') === -1 ? words.substr(0) : words.substr(0, words.indexOf(' ')); // remove punctuation\n\n  ret = ret.match(/[^?!.,;:]+/g).join('');\n  return ret;\n};\n\n//# sourceURL=webpack:///./src/utility/getFirstWord.js?");
 
 /***/ }),
 
