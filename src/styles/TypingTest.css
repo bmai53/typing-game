@@ -12,3 +12,9 @@
 .Outgoing{
    color: gray; 
 }
+
+@media screen and (max-device-width:480px){
+    .Outgoing{
+        display: none;
+    }
+}
