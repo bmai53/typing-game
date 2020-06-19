@@ -3,31 +3,11 @@
     font-family:  monospace;
 }
 
-.refreshButton{
-  font-size: calc(2vmin); 
-  margin: 1vmin;
-  display: block;
-  margin: auto;
-  background: #61dafb;
-  text-align: center;
-  border-radius: 5px;
-  color: #282c34;
-  text-decoration: none;
-  font-weight: bold;
-  /* cards */
-  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.3);
-  transition: 0.3s;
-}
-
-.refreshButton:hover{
-  box-shadow: 0 20px 40px 0 rgba(0,0,0,0.3);
-}
-
-.refreshButton:active{
-  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.3);
-  color: #61dafb;
-  border: 3px solid #61dafb;
-  background-color: white;
+.repoLink{
+  position:absolute;
+  top: 0;
+  left: 0;
+  height: 10vmin;
 }
 
 .refreshButton{

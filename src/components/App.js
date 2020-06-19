@@ -14,6 +14,8 @@ import { refresh } from '../utility/refresh'
 import { getFirstWord } from "../utility/getFirstWord"
 import { nonLettersDir } from "../utility/nonLetters"
 
+import githubLink from '../githubLogo.png'
+
 const words = getWords()
 
 
@@ -201,7 +203,11 @@ const App = () => {
             <MostFreqTypos typoArray={typoArray} />
 
             <br />
-
+            
+            <a href="https://github.com/bmai53/typing-game">
+                <img className="repoLink" src={githubLink} />
+            </a>
+            
             <div className="refreshButton" onClick={refresh}>Restart</div>
         </div>
     )
