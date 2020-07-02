@@ -2,9 +2,8 @@
 // return string in format M:SS
 export const timeConvert = (seconds) => {
 
-
-    let sec = `${Math.floor(seconds)}`
     const remainingSeconds = seconds % 60
+    let sec = `${Math.floor(remainingSeconds)}`
     if (remainingSeconds < 10) { sec = '0' + sec }
 
     

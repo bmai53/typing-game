@@ -561,7 +561,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"timeConvert\", function() { return timeConvert; });\n// return string in format M:SS\nconst timeConvert = seconds => {\n  let sec = `${Math.floor(seconds)}`;\n  const remainingSeconds = seconds % 60;\n\n  if (remainingSeconds < 10) {\n    sec = '0' + sec;\n  }\n\n  const secondsInMinutes = (seconds - remainingSeconds) / 60;\n  const min = `${Math.floor(secondsInMinutes)}`;\n  return `${min}:${sec}`;\n};\n\n//# sourceURL=webpack:///./src/utility/timeConvert.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"timeConvert\", function() { return timeConvert; });\n// return string in format M:SS\nconst timeConvert = seconds => {\n  const remainingSeconds = seconds % 60;\n  let sec = `${Math.floor(remainingSeconds)}`;\n\n  if (remainingSeconds < 10) {\n    sec = '0' + sec;\n  }\n\n  const secondsInMinutes = (seconds - remainingSeconds) / 60;\n  const min = `${Math.floor(secondsInMinutes)}`;\n  return `${min}:${sec}`;\n};\n\n//# sourceURL=webpack:///./src/utility/timeConvert.js?");
 
 /***/ }),
 
