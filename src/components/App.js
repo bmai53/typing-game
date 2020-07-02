@@ -13,6 +13,7 @@ import { getTime } from '../utility/time'
 import { refresh } from '../utility/refresh'
 import { getFirstWord } from "../utility/getFirstWord"
 import { nonLettersDir } from "../utility/nonLetters"
+import { timeConvert } from "../utility/timeConvert"
 
 import githubLink from '../githubLogo.png'
 
@@ -35,7 +36,7 @@ const App = () => {
 
     // wpm
     const [startTime, setStartTime] = useState()
-    const [curTime, setCurTime] = useState()
+    const [runTime, setRunTime] = useState('0:00')
     const [wordCount, setWordCount] = useState(0)
     const [wpm, setWpm] = useState(0)
 
@@ -73,7 +74,6 @@ const App = () => {
         // initialize!
         if (!startTime) {
             setStartTime(getTime())
-            setCurTime(getTime())
         }
 
         // are we typing? Yes!
@@ -94,7 +94,7 @@ const App = () => {
 
             // calc wpm after every keystroke
             calcWpm()
- 
+
 
             //gradually remove padding as needed
             if (leftPadding.length > 0) {
@@ -150,6 +150,11 @@ const App = () => {
             setAccuracyColor(hsl(accuracy))
         }
 
+        // update running time when keys are pressed
+        if (startTime) {
+            const curTime = (getTime() - startTime) / 1000
+            setRunTime(timeConvert(curTime))
+        }
     })
 
     // track current time/user
@@ -159,7 +164,12 @@ const App = () => {
             // calc wpm even when user is not typing
             if (startTime) {
                 calcWpm()
+                // update running time when no keys are pressed
+                const curTime = (getTime() - startTime) / 1000
+                setRunTime(timeConvert(curTime))
             }
+
+            
 
             // check if still typing
             const timeDif = getTime() - timeOfLastKey
@@ -176,16 +186,17 @@ const App = () => {
         };
     });
 
+
     return (
         <div className="AppComponent">
-
             <Logo isTyping={isTyping} />
-
             <Stats
+                runTime={runTime}
                 wpm={wpm}
                 accuracy={accuracy}
                 accuracyColor={accuracyColor}
                 wpmColor={wpmColor}
+                wordCount={wordCount}
             />
 
             <br />
@@ -203,11 +214,11 @@ const App = () => {
             <MostFreqTypos typoArray={typoArray} />
 
             <br />
-            
+
             <a href="https://github.com/bmai53/typing-game">
                 <img className="repoLink" src={githubLink} />
             </a>
-            
+
             <div className="refreshButton" onClick={refresh}>Restart</div>
         </div>
     )
