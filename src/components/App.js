@@ -15,7 +15,7 @@ import { getFirstWord } from "../utility/getFirstWord"
 import { nonLettersDir } from "../utility/nonLetters"
 import { timeConvert } from "../utility/timeConvert"
 
-import githubLink from '../githubLogo.png'
+import GithubCorner from 'react-github-corner';
 
 const words = getWords()
 
@@ -189,6 +189,7 @@ const App = () => {
 
     return (
         <div className="AppComponent">
+            <GithubCorner href='https://github.com/bmai53/typing-game' direction='left'/>
             <Logo isTyping={isTyping} />
             <Stats
                 runTime={runTime}
@@ -212,12 +213,6 @@ const App = () => {
             <br />
 
             <MostFreqTypos typoArray={typoArray} />
-
-            <br />
-
-            <a href="https://github.com/bmai53/typing-game">
-                <img className="repoLink" src={githubLink} />
-            </a>
 
             <div className="refreshButton" onClick={refresh}>Restart</div>
         </div>

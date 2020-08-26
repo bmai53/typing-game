@@ -25,6 +25,7 @@
     "html-webpack-plugin": "^4.3.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-github-corner": "^2.3.0",
     "style-loader": "^1.2.1",
     "txtgen": "^2.2.6",
     "webpack": "^4.43.0",
