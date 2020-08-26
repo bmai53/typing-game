@@ -3,13 +3,6 @@
     font-family:  monospace;
 }
 
-.repoLink{
-  position:absolute;
-  top: 0;
-  left: 0;
-  height: 10vmin;
-}
-
 .refreshButton{
 
   border: none;
