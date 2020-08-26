@@ -174,7 +174,7 @@ const App = () => {
 
             // check if still typing
             const timeDif = getTime() - timeOfLastKey
-            if (timeOfLastKey && (timeDif < 1000)) {
+            if (timeOfLastKey && (timeDif < 100)) {
                 setIsTyping(true)
             }
             else {

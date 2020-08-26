@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react"
 import "../styles/Cat.css"
 import base from '../bongo_cat/base.png'
-import left from '../bongo_cat/left.png'
-import right from '../bongo_cat/right.png'
+import typing from '../bongo_cat/typing.gif'
 
 export default ({ isTyping, currentKey }) => {
     
@@ -27,12 +26,7 @@ export default ({ isTyping, currentKey }) => {
         return <img className="Cat" src={base} />
     }
     else {
-        if(cur === 'left') {
-            return <img className="Cat" src={left} />
-        }
-        else {
-            return <img className="Cat" src={right} />
-        }
+        return <img className="Cat" src={typing} />
     }
 
 }
