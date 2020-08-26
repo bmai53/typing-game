@@ -8,6 +8,8 @@ const Logo = (props) => {
         animation: `spin infinite ${props.isTyping? '3' : '0'}s linear`, 
         transition: 'ease-in-out'
     }
+
+    console.log()
    
     return (
         <div 

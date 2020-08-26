@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import "../styles/App.css"
 
 import Logo from "./Logo"
+import Cat from "./Cat"
 import Stats from "./Stats"
 import TypingTest from "./TypingTest"
 import MostFreqTypos from "./MostFreqTypos"
@@ -44,7 +45,7 @@ const App = () => {
     const [accuracy, setAccuracy] = useState(0);
     const [typedChars, setTypedChars] = useState('')
 
-    // faster spins when typing!
+    // bongo cat when typing!
     const [isTyping, setIsTyping] = useState(false)
     const [timeOfLastKey, setTimeOfLastKey] = useState()
 
@@ -186,11 +187,11 @@ const App = () => {
         };
     });
 
-
     return (
         <div className="AppComponent">
             <GithubCorner href='https://github.com/bmai53/typing-game' direction='left'/>
-            <Logo isTyping={isTyping} />
+            {/* <Logo isTyping={isTyping} /> */}
+            <Cat isTyping={isTyping} />
             <Stats
                 runTime={runTime}
                 wpm={wpm}
