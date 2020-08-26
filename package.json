@@ -5,11 +5,11 @@
   "homepage": "https://bmai53.github.io/typing-game",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode development",
+    "build": "webpack --mode production",
     "start": "webpack-dev-server --open --mode development",
     "test": "echo \"Error: no test specified\" && exit 1",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist "
+    "deploy": "gh-pages -d dist"
   },
   "author": "Me",
   "license": "ISC",
