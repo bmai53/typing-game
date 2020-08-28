@@ -1,20 +1,18 @@
-.MostFreqTypos{
-  font-size: calc(10px + 2vmin); 
-  margin: auto;
+.MostFreqTypos {
+  font-size: calc(10px + 2vmin);
 }
 
-.table{
-  margin-left:auto; 
-  margin-right:auto;
+.table {
+  margin-left: auto;
+  margin-right: auto;
   border-collapse: collapse;
   table-layout: auto;
 }
 
-.table td{
-  width: 25vmin;
+.table td {
   color: silver;
 }
 
-.tableHeaders{
-  border-bottom: 1px solid white;
+.TypoCount{
+  text-align: left;
 }

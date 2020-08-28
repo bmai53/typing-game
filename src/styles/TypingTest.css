@@ -1,7 +1,7 @@
 .TypingTest{
     
     width: 95vmin;
-    margin: 5vh auto 5vh auto;
+    margin: 10vh auto 10vh auto;
     font-size: calc(16px + 2vmin); 
     white-space: pre;
     text-align: center;

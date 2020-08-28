@@ -1,5 +1,30 @@
-.Stats{
-    text-align: center;
-    font-size: calc(20px + 2vmin); 
-    margin: auto;
+.Stats {
+  margin: auto;
+  width: 25%;
+  min-width: 300px;
+  white-space: nowrap;
+  border-collapse:separate; 
+  border-spacing:0 15px;
+}
+
+.MainStats {
+  font-size: calc(20px + 2vmin);
+  margin-bottom: 5px;
+}
+
+.SecondaryStats {
+  font-size: calc(5px + 2vmin);
+}
+
+.StatsLeft {
+  text-align: right;
+  border-right: 3px solid white;
+}
+
+.StatsRight {
+  text-align: left;
+}
+
+.Stats td{
+    padding: 0 30px 0 30px
 }
