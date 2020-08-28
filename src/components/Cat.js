@@ -3,7 +3,7 @@ import "../styles/Cat.css"
 import base from '../bongo_cat/base.png'
 import typing from '../bongo_cat/typing.gif'
 
-export default ({ isTyping, currentKey }) => {
+export default ({ isTyping, startTime }) => {
     
     const [cur, setCur] = useState('left')
 
@@ -22,7 +22,17 @@ export default ({ isTyping, currentKey }) => {
         }
     })
 
-    if (!isTyping) {
+    if (!startTime){
+        return (
+            <div className="Container">
+                <img className="Cat" src={base} />
+                <div class="ImgText blink">
+                    <p>Type to start the game!</p>
+                </div>
+            </div>
+        )
+    }
+    else if (!isTyping) {
         return <img className="Cat" src={base} />
     }
     else {

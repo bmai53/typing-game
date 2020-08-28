@@ -1,5 +1,29 @@
-.Cat{
-    max-width: 30vmin;
-    margin: auto;
-    display: block;
+.Cat {
+  max-width: 35vmin;
+  margin: auto;
+  display: block;
+}
+
+.Container {
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+}
+.ImgText {
+  font-size: calc(30px + 2vmin);
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.blink {
+  animation: blink 2s linear infinite;
+}
+@keyframes blink{
+    0%{     color: #fff;    }
+    49%{    color: #fff; }
+    60%{    color: transparent; }
+    99%{    color:transparent;  }
+    100%{   color: #fff;    }
 }

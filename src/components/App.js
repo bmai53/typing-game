@@ -182,7 +182,7 @@ const App = () => {
         <div className="AppComponent">
             <GithubCorner href='https://github.com/bmai53/typing-game' direction='left' />
             {/* <Logo isTyping={isTyping} /> */}
-            <Cat isTyping={isTyping} />
+            <Cat isTyping={isTyping} startTime={startTime}/>
             <Stats
                 runTime={runTime}
                 wpm={wpm}
@@ -200,7 +200,9 @@ const App = () => {
                 cursorColor={cursorColor}
             />
 
-            <MostFreqTypos typoMap={typoMap} />
+            {
+                typoMap.size > 0 ? <MostFreqTypos typoMap={typoMap} /> : <div></div>
+            }
 
             <div className="refreshButton" onClick={refresh}>Restart</div>
         </div>
