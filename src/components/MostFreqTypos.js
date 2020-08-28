@@ -1,7 +1,15 @@
 import React from 'react'
 import "../styles/MostFreqTypo.css"
 
-const MostFreqTypos = ({ typoArray }) => {
+const MostFreqTypos = ({ typoMap }) => {
+
+    // making array from map and sorting it
+    let typoArray = []
+    for (const [key, value] of typoMap.entries()) {
+        typoArray.push({ key, value })
+    }
+    typoArray.sort((a, b) => b.value - a.value)
+
     
     return (
         <div className="MostFreqTypos">

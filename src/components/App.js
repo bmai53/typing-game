@@ -53,13 +53,6 @@ const App = () => {
     const [curWord, setCurWord] = useState(getFirstWord(words))  // get first word in words
     const [typoMap, setTypoMap] = useState(new Map())
 
-    // making array from map and sorting it
-    let typoArray = []
-    for (const [key, value] of typoMap.entries()) {
-        typoArray.push({ key, value })
-    }
-    typoArray.sort((a, b) => b.value - a.value)
-
     const calcWpm = () => {
         const curTimeInMinutes = (getTime() - startTime) / 60000
         const curWpm = wordCount === 0 ? 0 : (wordCount / curTimeInMinutes).toFixed(2)
@@ -158,19 +151,17 @@ const App = () => {
         }
     })
 
-    // track current time/user
+    // updates while no key strokes are made
     useEffect(() => {
         const checkIfTyping = setInterval(() => {
 
             // calc wpm even when user is not typing
+            // update running time when no keys are pressed
             if (startTime) {
                 calcWpm()
-                // update running time when no keys are pressed
                 const curTime = (getTime() - startTime) / 1000
                 setRunTime(timeConvert(curTime))
             }
-
-            
 
             // check if still typing
             const timeDif = getTime() - timeOfLastKey
@@ -189,7 +180,7 @@ const App = () => {
 
     return (
         <div className="AppComponent">
-            <GithubCorner href='https://github.com/bmai53/typing-game' direction='left'/>
+            <GithubCorner href='https://github.com/bmai53/typing-game' direction='left' />
             {/* <Logo isTyping={isTyping} /> */}
             <Cat isTyping={isTyping} />
             <Stats
@@ -201,8 +192,6 @@ const App = () => {
                 wordCount={wordCount}
             />
 
-            <br />
-
             <TypingTest
                 leftPadding={leftPadding}
                 outgoing={outgoing}
@@ -211,9 +200,7 @@ const App = () => {
                 cursorColor={cursorColor}
             />
 
-            <br />
-
-            <MostFreqTypos typoArray={typoArray} />
+            <MostFreqTypos typoMap={typoMap} />
 
             <div className="refreshButton" onClick={refresh}>Restart</div>
         </div>
