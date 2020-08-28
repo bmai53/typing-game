@@ -1,10 +1,9 @@
-.AppComponent{
-    color: white;
-    font-family:  monospace;
+.AppComponent {
+  color: white;
+  font-family: monospace;
 }
 
-.refreshButton{
-
+.refreshButton {
   border: none;
   background: #109acc;
   color: white;
@@ -18,17 +17,27 @@
   cursor: pointer;
   border-radius: 5px;
   /* cards */
-  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3);
   transition: 0.3s;
-  position:absolute;
+  position: absolute;
   bottom: 5vmin;
   right: 5vmin;
 }
-.refreshButton:hover{
-  box-shadow: 0 20px 40px 0 rgba(0,0,0,0.3);
+.refreshButton:hover {
+  box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
 }
-.refreshButton:active{
-  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.3);
-  background:white;
+.refreshButton:active {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
+  background: white;
   color: #109acc;
+}
+
+@media screen and (max-device-width: 480px) {
+  .refreshButton {
+    bottom: 10%;
+    right: 50%;
+    transform: translate(50%);
+    padding: 10px 30px;
+    font-size: 5vmin;
+  }
 }

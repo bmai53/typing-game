@@ -3,8 +3,8 @@
   width: 25%;
   min-width: 300px;
   white-space: nowrap;
-  border-collapse:separate; 
-  border-spacing:0 15px;
+  border-collapse: separate;
+  border-spacing: 0 15px;
 }
 
 .MainStats {
@@ -25,6 +25,12 @@
   text-align: left;
 }
 
-.Stats td{
-    padding: 0 30px 0 30px
+.Stats td {
+  padding: 0 30px 0 30px;
+}
+
+@media screen and (max-device-width: 480px) {
+  .Stats td {
+    padding: 0 10px 0 10px;
+  }
 }
