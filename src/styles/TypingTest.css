@@ -1,11 +1,12 @@
 .TypingTest{
-    width: 95vmin;
+    width: 100%;
     margin: 10vh auto 10vh auto;
     font-size: calc(16px + 2vmin); 
     white-space: pre;
     text-align: center;
-    padding: 1%;
+    padding: 0;
     overflow: hidden;
+
 }
 
 .Outgoing{

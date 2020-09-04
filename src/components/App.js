@@ -24,7 +24,7 @@ const words = getWords()
 const App = () => {
 
     // typing test
-    const [leftPadding, setLeftPadding] = useState(' '.repeat(20))
+    const [leftPadding, setLeftPadding] = useState(' '.repeat(40))
     const [outgoing, setOutgoing] = useState('')
     const [incoming, setIncoming] = useState(words.substr(1))
     const [curChar, setCurChar] = useState(words.charAt(0))
@@ -111,7 +111,7 @@ const App = () => {
             curIncoming = incoming.substr(1)
 
             // get more words if needed for incoming
-            if (incoming.length < 30) {
+            if (incoming.length < 50) {
                 curIncoming += ' ' + getWords()
             }
 

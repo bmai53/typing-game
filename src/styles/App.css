@@ -1,6 +1,7 @@
 .AppComponent {
   color: white;
   font-family: monospace;
+  width: 100%;
 }
 
 .refreshButton {

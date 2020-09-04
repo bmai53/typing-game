@@ -5,7 +5,7 @@ const TypingTest = props => (
 
     <p className="TypingTest">
         <span className="Outgoing">
-            {props.leftPadding + props.outgoing.slice(-20)}
+            {props.leftPadding + props.outgoing.slice(-40)}
         </span>
 
         <span
@@ -16,7 +16,7 @@ const TypingTest = props => (
         </span>
 
         <span className="Incoming">
-            {props.incoming.substr(0, 20)}
+            {props.incoming.substr(0, 40)}
         </span>
     </p>
 )
