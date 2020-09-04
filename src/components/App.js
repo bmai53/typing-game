@@ -26,8 +26,8 @@ const App = () => {
     // typing test
     const [leftPadding, setLeftPadding] = useState(' '.repeat(20))
     const [outgoing, setOutgoing] = useState('')
-    const [curChar, setCurChar] = useState(words.charAt(0))
     const [incoming, setIncoming] = useState(words.substr(1))
+    const [curChar, setCurChar] = useState(words.charAt(0))
 
     // colors/decoration
     const [accuracyColor, setAccuracyColor] = useState('#FFFFFF')
@@ -62,6 +62,11 @@ const App = () => {
         setWpm(curWpm)
     }
 
+    // all non letters except APOSTROPHE end words
+    const endOfWordChars = nonLettersDir.map(e => {
+        if (e.value !== 'APOSTROPHE') return e.key
+    }).filter(e => e !== undefined)
+
     // logic of game 
     useKeyPress(key => {
 
@@ -81,14 +86,19 @@ const App = () => {
         if (key === curChar) {
 
             // updating word count
-            if (incoming.charAt(0) === ' ') {
+            // if current char ends word
+            // prevents duplicate in cases such as comma + space, period + space, etc.
+            if (endOfWordChars.includes(incoming.charAt(0)) && !endOfWordChars.includes(curChar) ) {
                 setWordCount(wordCount + 1)
+            }
+
+            // get next word
+            if(incoming.charAt(0) === ' ') {
                 setCurWord(getFirstWord(incoming.substr(1)))
             }
 
             // calc wpm after every keystroke
             calcWpm()
-
 
             //gradually remove padding as needed
             if (leftPadding.length > 0) {
@@ -105,8 +115,8 @@ const App = () => {
                 curIncoming += ' ' + getWords()
             }
 
-            setOutgoing(curOutgoing)
             setCurChar(incoming.charAt(0))
+            setOutgoing(curOutgoing)
             setIncoming(curIncoming)
         }
         // mistyped character
@@ -182,7 +192,7 @@ const App = () => {
         <div className="AppComponent">
             <GithubCorner href='https://github.com/bmai53/typing-game' direction='left' />
             {/* <Logo isTyping={isTyping} /> */}
-            <Cat isTyping={isTyping} startTime={startTime}/>
+            <Cat isTyping={isTyping} startTime={startTime} />
             <Stats
                 runTime={runTime}
                 wpm={wpm}
