@@ -190,7 +190,6 @@ const App = () => {
 
     return (
         <div className="AppComponent">
-            <GithubCorner href='https://github.com/bmai53/typing-game' direction='left' />
             {/* <Logo isTyping={isTyping} /> */}
             <Cat isTyping={isTyping} startTime={startTime} />
             <Stats
@@ -215,6 +214,8 @@ const App = () => {
             }
 
             <div className="refreshButton" onClick={refresh}>Restart</div>
+
+            <GithubCorner href='https://github.com/bmai53/typing-game' direction='left' />
         </div>
     )
 }
